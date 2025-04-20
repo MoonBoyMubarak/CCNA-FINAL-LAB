@@ -1,6 +1,48 @@
 ### Configs 
 
 **DHCP config HQ-MAIN**
+**Vlans and names**
+name Mgmt
+vlan 20
+name Phones
+vlan 30
+name IT-SUPPORT
+vlan 40
+name SVR-Wi-fi
+vlan 50
+name  WEB-SVR
+vlan 60
+name DNS-SVR
+vlan 70
+name FTP-SVR
+vlan 80
+name DHCP-SVR
+vlan 1000
+name UNUSED
+ 
+
+
+vlan 10
+name Mgmt                                 
+vlan 20
+name  Phones                               
+vlan 30   
+name CustCARE 
+vlan 40  
+name Printers                            
+vlan 50  
+name Sales                               
+vlan 60
+name Staff—Wi-fi
+vlan 70 
+name Guest—Wi-fi
+vlan 80
+name Acctng                              
+vlan 1000 
+name UNUSED 
+ 
+
+
 
 ! VLAN 10 - Mgmt
 ip dhcp excluded-address 172.16.1.1 172.16.1.10
@@ -171,21 +213,20 @@ interface vlan 70
 ### OSPF ROUTING
 
 #### HQ-DSW1 OSPF Configuration
-
 router ospf 10
  router-id 172.16.0.7
- network 172.16.0.84 0.0.0.3 area 0
- network 172.16.0.96 0.0.0.3 area 0
- network 172.16.0.7 0.0.0.0 area 0
+ network 172.16.0.84 0.0.0.3 area 1
+ network 172.16.0.96 0.0.0.3 area 1
+ network 172.16.0.7 0.0.0.0 area 1
 
- network 172.16.1.0 0.0.0.255 area 0
- network 172.16.2.0 0.0.0.255 area 0
- network 172.16.3.0 0.0.0.255 area 0
- network 172.16.4.0 0.0.0.255 area 0
- network 172.16.5.0 0.0.0.255 area 0
- network 172.16.6.0 0.0.0.255 area 0
- network 172.16.7.0 0.0.0.255 area 0
- network 172.16.8.0 0.0.0.255 area 0
+ network 172.16.1.0 0.0.0.255 area 1
+ network 172.16.2.0 0.0.0.255 area 1
+ network 172.16.3.0 0.0.0.255 area 1
+ network 172.16.4.0 0.0.0.255 area 1
+ network 172.16.5.0 0.0.0.255 area 1
+ network 172.16.6.0 0.0.0.255 area 1
+ network 172.16.7.0 0.0.0.255 area 1
+ network 172.16.8.0 0.0.0.255 area 1
 
  passive-interface default
  no passive-interface GigabitEthernet1/0/23
@@ -195,45 +236,102 @@ router ospf 10
 
 router ospf 10
  router-id 172.16.0.8
- network 172.16.0.88 0.0.0.3 area 0
- network 172.16.0.92 0.0.0.3 area 0
- network 172.16.0.8 0.0.0.0 area 0
- 
- network 172.16.1.0 0.0.0.255 area 0
- network 172.16.2.0 0.0.0.255 area 0
- network 172.16.3.0 0.0.0.255 area 0
- network 172.16.4.0 0.0.0.255 area 0
- network 172.16.5.0 0.0.0.255 area 0
- network 172.16.6.0 0.0.0.255 area 0
- network 172.16.7.0 0.0.0.255 area 0
- network 172.16.8.0 0.0.0.255 area 0
+ network 172.16.0.88 0.0.0.3 area 1
+ network 172.16.0.92 0.0.0.3 area 1
+ network 172.16.0.8 0.0.0.0 area 1
 
-passive-interface default
-no passive-interface GigabitEthernet1/0/23
-no passive-interface G1/0/24
+ network 172.16.1.0 0.0.0.255 area 1
+ network 172.16.2.0 0.0.0.255 area 1
+ network 172.16.3.0 0.0.0.255 area 1
+ network 172.16.4.0 0.0.0.255 area 1
+ network 172.16.5.0 0.0.0.255 area 1
+ network 172.16.6.0 0.0.0.255 area 1
+ network 172.16.7.0 0.0.0.255 area 1
+ network 172.16.8.0 0.0.0.255 area 1
+
+ passive-interface default
+ no passive-interface GigabitEthernet1/0/23
+ no passive-interface GigabitEthernet1/0/24
+
 
 #### HQ-CORE1 OSPF Configuration
 
 router ospf 10
  router-id 172.16.0.3
 
- network 172.16.0.68 0.0.0.3 area 0
- network 172.16.0.52 0.0.0.3 area 0
- network 172.16.0.84 0.0.0.3 area 0
- network 172.16.0.96 0.0.0.3 area 0
- network 172.16.0.116 0.0.0.3 area 0
+ network 172.16.0.68 0.0.0.3 area 0  
+ network 172.16.0.52 0.0.0.3 area 0  
+ network 172.16.0.84 0.0.0.3 area 1
+ network 172.16.0.96 0.0.0.3 area 1
+ network 172.16.0.116 0.0.0.3 area 1
 
  passive-interface Loopback0
+
 
 #### HQ-CORE2 OSPF Configuration 
 router ospf 10
  router-id 172.16.0.4
- 
+
  network 172.16.0.56 0.0.0.3 area 0
  network 172.16.0.72 0.0.0.3 area 0
- network 172.16.0.92 0.0.0.3 area 
- network 172.16.0.96 0.0.0.3 area 0
- network 172.16.0.116 0.0.0.3 area 0
+ network 172.16.0.92 0.0.0.3 area 1
+ network 172.16.0.96 0.0.0.3 area 1
+ network 172.16.0.116 0.0.0.3 area 1
 
  passive-interface Loopback0
 
+
+
+ let's do ospf for HQ-R1 and HQ-R2 with networks we excluded to remain in area 0. HQ-R1 has 172.16.0.68/30 and .72/30 then HQ-R2 has networks 172.16.0.52/30 and .56/30
+
+#### HQ-R1 OSPF Configuration
+
+ router ospf 10
+ router-id 172.16.0.1
+
+
+ network 172.16.0.68 0.0.0.3 area 0
+ network 172.16.0.72 0.0.0.3 area 0
+ network 172.16.0.1 0.0.0.0 area 0   
+
+ passive-interface Loopback0
+
+#### HQ-R2 OSPF Configuration
+router ospf 10
+ router-id 172.16.0.2
+
+ network 172.16.0.52 0.0.0.3 area 0
+ network 172.16.0.56 0.0.0.3 area 0
+ network 172.16.0.2 0.0.0.0 area 0  
+ passive-interface Loopback0
+
+
+
+
+### SVR-FARM
+
+Let's run the spanning-tree bridge redundancy. i think I have already configured the vlans here.
+
+**Vlans and their names**
+
+vlan 10
+name Mgmt
+vlan 20
+name Phones
+vlan 30
+name IT-SUPPORT
+vlan 40
+name SVR-Wi-fi
+vlan 50
+name  WEB-SVR
+vlan 60
+name DNS-SVR
+vlan 70
+name FTP-SVR
+vlan 80
+name DHCP-SVR
+vlan 1000
+name UNUSED
+
+
+**_One thing I just notced now is how I want to ensure there won't be any addressing overlaps btw the HQ-MAIN and the Server Farm. I would probably continue from where we stopped in HQ-MAIN_**
