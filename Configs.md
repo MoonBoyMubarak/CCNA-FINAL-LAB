@@ -25,52 +25,53 @@ name UNUSED
 
 
 ! VLAN 10 - Mgmt
-ip dhcp excluded-address 172.16.1.1 172.16.1.10
+ip dhcp excluded-address 172.17.1.1 172.17.1.10
 ip dhcp pool Mgmt
- network 172.16.1.0 255.255.255.128
- default-router 172.16.1.1
+ network 172.17.1.0 255.255.255.128
+ default-router 172.17.1.1
 
 ! VLAN 20 - Phones
-ip dhcp excluded-address 172.16.2.1 172.16.2.10
+ip dhcp excluded-address 172.17.2.1 172.17.2.10
 ip dhcp pool Phones
- network 172.16.2.0 255.255.255.0
- default-router 172.16.2.1
+ network 172.17.2.0 255.255.255.0
+ default-router 172.17.2.1
 
 ! VLAN 30 - CustCARE
-ip dhcp excluded-address 172.16.3.1 172.16.3.10
+ip dhcp excluded-address 172.17.3.1 172.17.3.10
 ip dhcp pool CustCARE
- network 172.16.3.0 255.255.255.0
- default-router 172.16.3.1
+ network 172.17.3.0 255.255.255.0
+ default-router 172.17.3.1
 
 ! VLAN 40 - Printers
-ip dhcp excluded-address 172.16.4.1 172.16.4.10
+ip dhcp excluded-address 172.17.4.1 172.17.4.10
 ip dhcp pool Printers
- network 172.16.4.0 255.255.255.0
- default-router 172.16.4.1
+ network 172.17.4.0 255.255.255.0
+ default-router 172.17.4.1
 
 ! VLAN 50 - Sales
-ip dhcp excluded-address 172.16.5.1 172.16.5.10
+ip dhcp excluded-address 172.17.5.1 172.17.5.10
 ip dhcp pool Sales
- network 172.16.5.0 255.255.255.0
- default-router 172.16.5.1
+ network 172.17.5.0 255.255.255.0
+ default-router 172.17.5.1
 
 ! VLAN 60 - Staff—Wi-fi
-ip dhcp excluded-address 172.16.6.1 172.16.6.10
+ip dhcp excluded-address 172.17.6.1 172.17.6.10
 ip dhcp pool Staff-WiFi
- network 172.16.6.0 255.255.255.0
- default-router 172.16.6.1
+ network 172.17.6.0 255.255.255.0
+ default-router 172.17.6.1
 
 ! VLAN 70 - Guest—Wi-fi
-ip dhcp excluded-address 172.16.7.1 172.16.7.10
+ip dhcp excluded-address 172.17.7.1 172.17.7.10
 ip dhcp pool Guest-WiFi
- network 172.16.7.0 255.255.255.0
- default-router 172.16.7.1
+ network 172.17.7.0 255.255.255.0
+ default-router 172.17.7.1
 
 ! VLAN 80 - Acctng
-ip dhcp excluded-address 172.16.8.1 172.16.8.10
+ip dhcp excluded-address 172.17.8.1 172.17.8.10
 ip dhcp pool Acctng
- network 172.16.8.0 255.255.255.0
- default-router 172.16.8.1
+ network 172.17.8.0 255.255.255.0
+ default-router 172.17.8.1
+
 
 ### HSRP
 
@@ -79,113 +80,114 @@ Following these STP root bridge configs: HQ-DSW1 spanning-tree vlan 10, 40, 60, 
 ### 🔧 HQ-DSW1 Configuration (Active for VLANs 10, 40, 60, 70)
 
 interface vlan 10
- ip address 172.16.1.2 255.255.255.128
+ ip address 172.17.1.2 255.255.255.128
  standby version 2
- standby 10 ip 172.16.1.1
+ standby 10 ip 172.17.1.1
  standby 10 priority 110
  standby 10 preempt
 
 interface vlan 40
- ip address 172.16.4.2 255.255.255.0
+ ip address 172.17.4.2 255.255.255.0
  standby version 2
- standby 40 ip 172.16.4.1
+ standby 40 ip 172.17.4.1
  standby 40 priority 110
  standby 40 preempt
 
 interface vlan 60
- ip address 172.16.6.2 255.255.255.0
+ ip address 172.17.6.2 255.255.255.0
  standby version 2
- standby 60 ip 172.16.6.1
+ standby 60 ip 172.17.6.1
  standby 60 priority 110
  standby 60 preempt
 
 interface vlan 70
- ip address 172.16.7.2 255.255.255.0
+ ip address 172.17.7.2 255.255.255.0
  standby version 2
- standby 70 ip 172.16.7.1
+ standby 70 ip 172.17.7.1
  standby 70 priority 110
  standby 70 preempt
 
 ! Standby (no preempt) for VLANs 20, 30, 50, 80
 
 interface vlan 20
- ip address 172.16.2.2 255.255.255.0
+ ip address 172.17.2.2 255.255.255.0
  standby version 2
- standby 20 ip 172.16.2.1
+ standby 20 ip 172.17.2.1
  standby 20 priority 90
 
 interface vlan 30
- ip address 172.16.3.2 255.255.255.0
+ ip address 172.17.3.2 255.255.255.0
  standby version 2
- standby 30 ip 172.16.3.1
+ standby 30 ip 172.17.3.1
  standby 30 priority 90
 
 interface vlan 50
- ip address 172.16.5.2 255.255.255.0
+ ip address 172.17.5.2 255.255.255.0
  standby version 2
- standby 50 ip 172.16.5.1
+ standby 50 ip 172.17.5.1
  standby 50 priority 90
 
 interface vlan 80
- ip address 172.16.8.2 255.255.255.0
+ ip address 172.17.8.2 255.255.255.0
  standby version 2
- standby 80 ip 172.16.8.1
+ standby 80 ip 172.17.8.1
  standby 80 priority 90
+
 
 ### 🛠️ HQ-DSW2 Configuration (Active for VLANs 20, 30, 50, 80)
 
 interface vlan 20
- ip address 172.16.2.3 255.255.255.0
+ ip address 172.17.2.3 255.255.255.0
  standby version 2
- standby 20 ip 172.16.2.1
+ standby 20 ip 172.17.2.1
  standby 20 priority 110
  standby 20 preempt
 
 interface vlan 30
- ip address 172.16.3.3 255.255.255.0
+ ip address 172.17.3.3 255.255.255.0
  standby version 2
- standby 30 ip 172.16.3.1
+ standby 30 ip 172.17.3.1
  standby 30 priority 110
  standby 30 preempt
 
 interface vlan 50
- ip address 172.16.5.3 255.255.255.0
+ ip address 172.17.5.3 255.255.255.0
  standby version 2
- standby 50 ip 172.16.5.1
+ standby 50 ip 172.17.5.1
  standby 50 priority 110
  standby 50 preempt
 
 interface vlan 80
- ip address 172.16.8.3 255.255.255.0
+ ip address 172.17.8.3 255.255.255.0
  standby version 2
- standby 80 ip 172.16.8.1
+ standby 80 ip 172.17.8.1
  standby 80 priority 110
  standby 80 preempt
 
 ! Standby (no preempt) for VLANs 10, 40, 60, 70
 
 interface vlan 10
- ip address 172.16.1.3 255.255.255.128
+ ip address 172.17.1.3 255.255.255.128
  standby version 2
- standby 10 ip 172.16.1.1
+ standby 10 ip 172.17.1.1
  standby 10 priority 90
 
 interface vlan 40
- ip address 172.16.4.3 255.255.255.0
+ ip address 172.17.4.3 255.255.255.0
  standby version 2
- standby 40 ip 172.16.4.1
+ standby 40 ip 172.17.4.1
  standby 40 priority 90
 
 interface vlan 60
- ip address 172.16.6.3 255.255.255.0
+ ip address 172.17.6.3 255.255.255.0
  standby version 2
- standby 60 ip 172.16.6.1
+ standby 60 ip 172.17.6.1
  standby 60 priority 90
 
 interface vlan 70
- ip address 172.16.7.3 255.255.255.0
+ ip address 172.17.7.3 255.255.255.0
  standby version 2
- standby 70 ip 172.16.7.1
+ standby 70 ip 172.17.7.1
  standby 70 priority 90
 
 
