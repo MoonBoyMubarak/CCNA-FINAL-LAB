@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Secure Enterprise Network Architecture with Dual-Homed eBGP, Multi-Area OSPF, and Centralized Wireless Control 
 
 **Protocols & Technology Covered Yet**: HSRP, OSPF Multi-Area, eBGP, DHCP, DNS, Web Server, WLC, NTP, EtherChanell and more
@@ -31,18 +31,11 @@ The network design uses a three-tier architecture at HQ and a collapsed core mod
 
 This design ensures high availability and eliminates single points of failure from the access layer to the ISP edge.
 
-   ## 🧱 Devices Used  
-- Cisco 2911 Routers (x6) :
-  - ISP 1, ISP 2
-  - 2 HQ Edge Routers
-  - 2 Branches Edge ROuters
-- Cisco 2960 Switches (x14)
-  - 2 HQ Core, 2 HQ Server Core
-- Cisco 3702i Light Weight Access Point 
-- Cisco 3504 Wireless Lan Controller   
-- DNS Server  
-- Web Server  
-- DHCP Server  
-- End Devices (PCs, Laptops, Printers.) 
+🧩 Devices Included, VLAN Naming, and IP Addressing Plan 
 
->>>>>>> 28449241ef3ef051d3ec13a774cd680314361ab8
+    Click the Image below for full details:
+
+
+[![Excel Table Screenshot](Snapshots/IP%20address.png)]([files/data.xlsx](https://docs.google.com/spreadsheets/d/1QF83DsqjehpkOu5XXQeB_6MHf-8u66oNltrQUHe3wfg/edit?usp=sharing))
+
+📌 Refer to the spreadsheet for a complete list of IP addresses, interface roles, and link purposes across all interconnects.
