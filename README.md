@@ -1,4 +1,5 @@
-# Secure Enterprise Network Architecture with Dual Multi-Homed Connectivity
+<<<<<<< HEAD
+# Secure Enterprise Network Architecture with Dual-Homed eBGP, Multi-Area OSPF, and Centralized Wireless Control 
 
 **Protocols & Technology Covered Yet**: HSRP, OSPF Multi-Area, eBGP, DHCP, DNS, Web Server, WLC, NTP, EtherChanell and more
 
@@ -42,6 +43,6 @@ This design ensures high availability and eliminates single points of failure fr
 - DNS Server  
 - Web Server  
 - DHCP Server  
-- End Devices (PCs, Laptops, Printers.)  
+- End Devices (PCs, Laptops, Printers.) 
 
-
+>>>>>>> 28449241ef3ef051d3ec13a774cd680314361ab8
